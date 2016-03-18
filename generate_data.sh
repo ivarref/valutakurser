@@ -8,5 +8,5 @@ cat valuta_mnd.csv | \
     ./csv_tail.py -n=60 | \
     ./normalize.py | \
     ./rename_column.py "100 SEK=>SEK,1 USD=>USD,1 EUR=>EUR,1 GBP=>GBP,Date=>date" | \
-    cat > data.csv
+    cat > public/data.csv
 
