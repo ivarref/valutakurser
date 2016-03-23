@@ -1,10 +1,12 @@
 #!/bin/bash
 
 set -euo pipefail
+set -x
 IFS=$'\n\t'
 
 rm -rf demo_cache.sqlite
 ./pull_data.py
+./pull_oil.sh
 ./generate_data.sh
-rm -rf screens/; gulp screens
+./extract_svg.py | tee diagram.svg
 

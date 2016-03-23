@@ -15,13 +15,7 @@ if __name__=="__main__":
   writer=csv.writer(sys.stdout)
   writer.writerow(available_columns)
 
-  n = -1
-  for arg in sys.argv:
-    if arg.startswith('-n='):
-      n = int(arg.split('-n=')[1])
-  sys.stderr.write("Skipping first %d lines\n" %  (n))
-
-  for (idx,row) in enumerate(reader):
-    if (idx+1)>n:
+  for row in reader:
+    if row[0] >= sys.argv[-1]:
       writer.writerow(row)
-
+    

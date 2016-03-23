@@ -2,9 +2,8 @@
 <meta charset="utf-8">
 <style>
 
-svg text {
-  font: 11px Helvetica;
-}
+svg text { font: 11px Helvetica; }
+.headline { font: 22px Helvetica; }
 
 .axis path,
 .axis line {
@@ -24,7 +23,7 @@ svg text {
 <script src="d3.v3.min.js"></script>
 <script src="d3-save-svg.min.js"></script>
 <script type="text/javascript">
-var margin = {top: 20, right: 80, bottom: 30, left: 50},
+var margin = {top: 20, right: 140, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -91,11 +90,13 @@ d3.csv("data.csv", function(error, data) {
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
-      .attr("transform", "rotate(-90)")
+      //.attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Exchange rate NOK. 100 = " + d3.time.format("%Y-%m")(x.domain()[0]))
+      .attr("dx", ".71em")
+      .style("text-anchor", "start")
+      .attr("class", "headline")
+      .text("Development of exchange rates for NOK and oil price. 100 = " + d3.time.format("%b %Y")(x.domain()[0]))
 
   var city = svg.selectAll(".city")
       .data(cities)
