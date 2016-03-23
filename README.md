@@ -16,4 +16,6 @@
         => Running web server in background task ... OK
         => Update page to use d3-save-svg (xhr-less first) ...
 
+        => Add oil price (12 MMA)
+
 
