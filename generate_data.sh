@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -euo pipefail
+IFS=$'\n\t'
+
 cat valuta_mnd.csv | \
     ./transform_date.py Date "%b-%y" "%Y-%m-%d" | \
     ./csv_skip.py -n=468 | \
