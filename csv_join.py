@@ -22,7 +22,7 @@ if __name__=="__main__":
   with open(join_file, 'r') as fd:
     (new_columns, reader2) = available_columns_and_reader(fd)
     if available_columns[0] != new_columns[0]:
-      sys.stderr.write("expected first column to match\n")
+      sys.stderr.write("expected first column header to match\n")
       sys.exit(1)
     available_columns.extend(new_columns[1:])
     writer.writerow(available_columns)
@@ -30,6 +30,7 @@ if __name__=="__main__":
       for r in reader2:
         if row[0] != r[0]:
           sys.stderr.write("expected first column to match\n")
+          sys.stderr.write("%s vs %s\n" % (row[0], r[0]))
           sys.exit(1)
         row.extend(r[1:])
         writer.writerow(row)

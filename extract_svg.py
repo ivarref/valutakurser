@@ -31,7 +31,10 @@ if __name__=="__main__":
 
   driver = webdriver.Chrome()
   try:
-    driver.get("http://localhost:%d/public/index.html" % (PORT))
+    pag = "/public/index.html"
+    if len(sys.argv)==2:
+      pag = sys.argv[-1]
+    driver.get("http://localhost:%d%s" % (PORT, pag))
     elem = driver.find_element_by_tag_name("svg")
     print elem.get_attribute('innerHTML')
   finally:

@@ -29,7 +29,11 @@ if __name__=="__main__":
         if available_columns[idx] in columns:
           values = [Decimal(r[idx]) for r in mma]
           mean = sum(values) / len(values)
-          sublist.append(mean)
+          if "--round" in sys.argv:
+            sublist.append(mean.quantize(Decimal(10) ** -2))
+          else:
+            sublist.append(mean)
+
         else:
           sublist.append(x)
       writer.writerow(sublist)
