@@ -14,8 +14,14 @@
       Using ChromeDriver ::: Java og Python?
       Let's go for Python
         => Running web server in background task ... OK
-        => Update page to use d3-save-svg (xhr-less first) ...
+        => Update page to use d3-save-svg (xhr-less first) ... OK
+        => Add oil price (12 MMA) ... OK
+        => Oil price in NOK ... Use R to calculate this!
 
-        => Add oil price (12 MMA)
 
+## Verdien av norsk oljeproduksjon
+
+    Get data ... OK
+    Transform date field ... OK
+    Have solution ... What about old brent prices?
 
